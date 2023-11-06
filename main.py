@@ -23,7 +23,7 @@ def main():
         curr_board.draw_pieces(screen)
 
         pygame.display.flip()
-
+ 
 
 main()
 pygame.quit()
