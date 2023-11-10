@@ -36,10 +36,10 @@ class Board:
 
     def get_cell(self, N: int):
         return self.cells[N]
-    
+
     def get_cell_by_coords(self, x: int, y: int):
         return self.cells[x + y * 8]
-    
+
     def draw_cells(self, screen: Surface):
         for cell in self.cells:
             cell.draw(screen)
@@ -54,7 +54,7 @@ class Board:
                     str(cell.cell),
                     (0, 0, 0),
                 )
-    
+
     ### Arrows ###
 
     def get_arrow(self, start: Cell, end: Cell) -> Arrow | None:
@@ -62,14 +62,14 @@ class Board:
             if arrow.start == start and arrow.end == end:
                 return arrow
         return None
-    
+
     def draw_arrows(self, screen: Surface):
         for arrow in self.arrows:
             arrow.draw(screen)
-    
+
     def add_arrow(self, start: Cell, end: Cell):
         self.arrows.append(Arrow(start, end))
-    
+
     def remove_arrow(self, start: Cell, end: Cell):
         try:
             self.arrows.remove(Arrow(start, end))

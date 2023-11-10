@@ -27,12 +27,8 @@ def symbol_to_piece(char: str) -> Optional[Callable[[], Piece]]:
 
     piece_map = {
         "p": WhitePieces.pawn if color == "white" else BlackPieces.pawn,
-        "n": WhitePieces.knight
-        if color == "white"
-        else BlackPieces.knight,
-        "b": WhitePieces.bishop
-        if color == "white"
-        else BlackPieces.bishop,
+        "n": WhitePieces.knight if color == "white" else BlackPieces.knight,
+        "b": WhitePieces.bishop if color == "white" else BlackPieces.bishop,
         "r": WhitePieces.rook if color == "white" else BlackPieces.rook,
         "q": WhitePieces.queen if color == "white" else BlackPieces.queen,
         "k": WhitePieces.king if color == "white" else BlackPieces.king,

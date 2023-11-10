@@ -28,7 +28,7 @@ class Cell:
 
     def __abs__(self) -> tuple:
         return (self.x * cell_size, self.y * cell_size)
-    
+
     ### hightlight ###
 
     def hightlight(self):
@@ -36,7 +36,7 @@ class Cell:
 
     def unhightlight(self):
         self.highlighted = False
-    
+
     def toggle_hightlight(self):
         self.highlighted = not self.highlighted
 
@@ -51,7 +51,9 @@ class Cell:
         startPos = (self.x * config.cell_size, self.y * config.cell_size)
 
         pygame.draw.rect(
-            screen, config.highlighted_board if self.highlighted else bgcolor, (*startPos, config.cell_size, config.cell_size)
+            screen,
+            config.highlighted_board if self.highlighted else bgcolor,
+            (*startPos, config.cell_size, config.cell_size),
         )
 
 
@@ -60,7 +62,9 @@ class Arrow:
     end: Cell
     color: tuple[int, int, int]
 
-    def __init__(self, start: Cell, end: Cell, color: tuple[int, int, int] = (0, 0, 0)) -> None:
+    def __init__(
+        self, start: Cell, end: Cell, color: tuple[int, int, int] = (0, 0, 0)
+    ) -> None:
         self.start = start
         self.end = end
         self.color = color
@@ -80,10 +84,12 @@ class Arrow:
         points = [startPos, endPos, (xr, yr), endPos, (xl, yl), endPos]
 
         pygame.draw.polygon(screen, self.color, points, width=5)
-    
+
     def __eq__(self, __value: object) -> bool:
         if isinstance(__value, Arrow):
-            return abs(self.start) == abs(__value.start) and abs(self.end) == abs(__value.end)
+            return abs(self.start) == abs(__value.start) and abs(self.end) == abs(
+                __value.end
+            )
         return False
 
 
@@ -104,39 +110,61 @@ class Piece(pygame.sprite.Sprite):
     def set_cell(self, cell: int | Cell):
         if isinstance(cell, int):
             cell = Cell(cell)
-        
+
         self.cell = cell
         return self
-    
+
     def draw(self, screen: pygame.Surface):
         screen.blit(self.surf, abs(self.cell))
 
 
 class WhitePieces:
     @staticmethod
-    def pawn(): return Piece("white-pawn")
+    def pawn():
+        return Piece("white-pawn")
+
     @staticmethod
-    def knight(): return Piece("white-knight")
+    def knight():
+        return Piece("white-knight")
+
     @staticmethod
-    def bishop(): return Piece("white-bishop")
+    def bishop():
+        return Piece("white-bishop")
+
     @staticmethod
-    def rook(): return Piece("white-rook")
+    def rook():
+        return Piece("white-rook")
+
     @staticmethod
-    def queen(): return Piece("white-queen")
+    def queen():
+        return Piece("white-queen")
+
     @staticmethod
-    def king(): return Piece("white-king")
+    def king():
+        return Piece("white-king")
 
 
 class BlackPieces:
     @staticmethod
-    def pawn(): return Piece("black-pawn")
+    def pawn():
+        return Piece("black-pawn")
+
     @staticmethod
-    def knight(): return Piece("black-knight")
+    def knight():
+        return Piece("black-knight")
+
     @staticmethod
-    def bishop(): return Piece("black-bishop")
+    def bishop():
+        return Piece("black-bishop")
+
     @staticmethod
-    def rook(): return Piece("black-rook")
+    def rook():
+        return Piece("black-rook")
+
     @staticmethod
-    def queen(): return Piece("black-queen")
+    def queen():
+        return Piece("black-queen")
+
     @staticmethod
-    def king(): return Piece("black-king")
+    def king():
+        return Piece("black-king")
