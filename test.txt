@@ -1,0 +1,10 @@
+left-down: startPos[0] > endPos[0] | startPos[1] < endPos[1]
+down: startPos[0] == endPos[0] | startPos[1] < endPos[1]
+right-down: startPos[0] < endPos[0] | startPos[1] < endPos[1]
+
+left: startPos[0] > endPos[0] | startPos[1] == endPos[1]
+right: startPos[0] < endPos[0] | startPos[1] == endPos[1]
+
+left-up: startPos[0] > endPos[0] | startPos[1] > endPos[1]
+up: startPos[0] == endPos[0] | startPos[1] > endPos[1]
+right-up: startPos[0] < endPos[0] | startPos[1] > endPos[1]

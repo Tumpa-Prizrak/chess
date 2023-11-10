@@ -9,7 +9,7 @@ def draw_text(
     color: tuple[int, int, int],
     bgcolor: tuple[int, int, int] | None = None,
 ):
-    text = font.render(text, True, color, bgcolor)
-    textRect = text.get_rect()
+    txt = font.render(text, True, color, bgcolor)
+    textRect = txt.get_rect()
     textRect.center = coords
-    screen.blit(text, textRect)
+    screen.blit(txt, textRect)
